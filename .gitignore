@@ -1,0 +1,16 @@
+/target
+/junk
+/.idea
+/.vscode
+.DS_Store
+*.dot
+*.pdf
+*.png
+*.jpg
+*.svg
+*.log
+*.bin
+*.elf
+*.hex
+*.lst
+decoder*.rs

@@ -1,0 +1,28 @@
+[package]
+name = "disarm64_defn"
+version = "0.1.0"
+edition = "2021"
+authors = ["kromych <kromych@users.noreply.github.com>"]
+description = """
+This library provides structures and enums for describing AArch64 (ARMv8) instructions.
+"""
+documentation = "https://github.com/kromych/disarm64_defn"
+homepage = "https://github.com/kromych/disarm64_defn"
+repository = "https://github.com/kromych/disarm64_defn"
+keywords = ["aarch64", "arm64", "arm-v8", "disassembler", "reverse-engineering"]
+categories = ["command-line-utilities", "development-tools", "embedded"]
+license = "Unlicense OR MIT"
+readme = "Readme.md"
+
+[lib]
+name = "disarm64_defn"
+path = "src/lib.rs"
+
+[dependencies]
+bitflags = { version = "2.4", features = ["serde"] }
+serde = { version = "1.0", features = ["derive"] }
+strum = "0.26"
+strum_macros = "0.26"
+
+[dev-dependencies]
+serde_json = "1.0"
