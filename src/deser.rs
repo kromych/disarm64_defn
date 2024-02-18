@@ -3,6 +3,7 @@
 
 #![allow(clippy::upper_case_acronyms)]
 
+use crate::BitfieldSpec;
 use crate::InsnBitField;
 use crate::InsnClass;
 use crate::InsnFeatureSet;
@@ -22,14 +23,6 @@ where
     let s: String = Deserialize::deserialize(deserializer)?;
     let without_prefix = s.trim_start_matches("0x");
     u32::from_str_radix(without_prefix, 16).map_err(serde::de::Error::custom)
-}
-
-/// The AArch64 instruction bit field specification.
-#[derive(Debug, Clone, Copy, Eq, PartialEq, Hash, Serialize, Deserialize)]
-pub struct BitfieldSpec {
-    pub bitfield: InsnBitField,
-    pub lsb: u8,
-    pub width: u8,
 }
 
 fn deser_bitfield_spec_str<'de, D>(s: &str) -> Result<BitfieldSpec, D::Error>

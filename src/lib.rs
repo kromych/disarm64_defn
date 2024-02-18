@@ -990,3 +990,11 @@ pub enum InsnBitField {
     ZAn_3,
     ZAn,
 }
+
+/// The AArch64 instruction bit field specification.
+#[derive(Debug, Clone, Copy, Eq, PartialEq, Hash, Serialize, Deserialize)]
+pub struct BitfieldSpec {
+    pub bitfield: InsnBitField,
+    pub lsb: u8,
+    pub width: u8,
+}
