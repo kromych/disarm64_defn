@@ -472,6 +472,13 @@ bitflags! {
     }
 }
 
+impl InsnFlags {
+    pub const fn const_from_bits(b: u64) -> InsnFlags {
+        // TODO: waiting for Option<T>::unwrap_or_else to be const
+        unsafe { core::mem::transmute(b) }
+    }
+}
+
 /// The AArch64 instruction operand kinds.
 #[derive(Debug, PartialEq, Eq, Copy, Clone, Hash, EnumIter, Serialize, Deserialize)]
 #[allow(non_camel_case_types, non_snake_case, clippy::upper_case_acronyms)]
