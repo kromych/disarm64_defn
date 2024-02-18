@@ -1,6 +1,6 @@
 #![cfg(test)]
 
-use crate::Insn;
+use crate::deser::Insn;
 
 #[test]
 fn test_json() {
