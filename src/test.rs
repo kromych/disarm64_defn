@@ -1,6 +1,7 @@
 #![cfg(test)]
 
 use crate::deser::Insn;
+use std::vec::Vec;
 
 #[test]
 fn test_json() {

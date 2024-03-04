@@ -15,6 +15,8 @@ use serde::de::value::StrDeserializer;
 use serde::Deserialize;
 use serde::Deserializer;
 use serde::Serialize;
+use std::string::String;
+use std::vec::Vec;
 
 fn deser_hex<'de, D>(deserializer: D) -> Result<u32, D::Error>
 where

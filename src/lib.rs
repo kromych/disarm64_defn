@@ -1,17 +1,26 @@
 //! This library provides structures and enums for describing
 //! AArch64 (ARMv8) instructions.
 
+#![no_std]
+
 pub mod defn;
+
+#[cfg(feature = "std")]
 pub mod deser;
 
+#[cfg(feature = "std")]
 mod test;
+
+#[cfg(feature = "std")]
+extern crate std;
 
 use bitflags::bitflags;
 use serde::Deserialize;
 use serde::Serialize;
-use std::str::FromStr;
-use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
+
+#[cfg(feature = "std")]
+use strum::IntoEnumIterator;
 
 /// The AArch64 instruction classes.
 #[allow(non_camel_case_types)]
@@ -136,8 +145,9 @@ pub enum InsnClass {
     THE,
 }
 
-impl FromStr for InsnClass {
-    type Err = String;
+#[cfg(feature = "std")]
+impl std::str::FromStr for InsnClass {
+    type Err = std::string::String;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         let s = s.to_uppercase();
@@ -262,18 +272,18 @@ impl FromStr for InsnClass {
             "THE" => Ok(InsnClass::THE),
 
             _ => {
-                let mut names = Vec::new();
+                let mut names = std::vec::Vec::new();
                 for i in InsnClass::iter() {
                     names.push(i);
                 }
-                Err(format!("expected a subset of {names:?}"))
+                Err(std::format!("expected a subset of {names:?}"))
             }
         }
     }
 }
 
-impl std::fmt::Display for InsnClass {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl core::fmt::Display for InsnClass {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         write!(f, "{:?}", self)
     }
 }
@@ -349,8 +359,9 @@ pub enum InsnFeatureSet {
     XS,
 }
 
-impl FromStr for InsnFeatureSet {
-    type Err = String;
+#[cfg(feature = "std")]
+impl std::str::FromStr for InsnFeatureSet {
+    type Err = std::string::String;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         let s = s.to_uppercase();
@@ -423,18 +434,18 @@ impl FromStr for InsnFeatureSet {
             "XS" => Ok(InsnFeatureSet::XS),
 
             _ => {
-                let mut names = Vec::new();
+                let mut names = std::vec::Vec::new();
                 for i in InsnFeatureSet::iter() {
                     names.push(i);
                 }
-                Err(format!("expected a subset of {names:?}"))
+                Err(std::format!("expected a subset of {names:?}"))
             }
         }
     }
 }
 
-impl std::fmt::Display for InsnFeatureSet {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl core::fmt::Display for InsnFeatureSet {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         write!(f, "{:?}", self)
     }
 }
