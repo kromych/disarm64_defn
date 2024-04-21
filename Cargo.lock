@@ -13,7 +13,7 @@ dependencies = [
 
 [[package]]
 name = "disarm64_defn"
-version = "0.1.5"
+version = "0.1.6"
 dependencies = [
  "bitflags",
  "serde",
