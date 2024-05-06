@@ -21,11 +21,13 @@ use strum_macros::EnumIter;
 
 #[cfg(feature = "std")]
 use strum::IntoEnumIterator;
-use strum_macros::AsRefStr;
+use strum_macros::IntoStaticStr;
 
 /// The AArch64 instruction classes.
 #[allow(non_camel_case_types)]
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, EnumIter, Serialize, Deserialize, AsRefStr)]
+#[derive(
+    Debug, PartialEq, Eq, Clone, Copy, Hash, EnumIter, Serialize, Deserialize, IntoStaticStr,
+)]
 pub enum InsnClass {
     AARCH64_MISC,
     ADDSUB_CARRY,
@@ -492,7 +494,9 @@ impl InsnFlags {
 }
 
 /// The AArch64 instruction operand kinds.
-#[derive(Debug, PartialEq, Eq, Copy, Clone, Hash, EnumIter, Serialize, Deserialize, AsRefStr)]
+#[derive(
+    Debug, PartialEq, Eq, Copy, Clone, Hash, EnumIter, Serialize, Deserialize, IntoStaticStr,
+)]
 #[allow(non_camel_case_types, non_snake_case, clippy::upper_case_acronyms)]
 pub enum InsnOperandKind {
     ADDR_ADRP,
@@ -799,7 +803,9 @@ pub enum InsnOperandKind {
 
 /// The AArch64 instruction operand classes.
 #[allow(non_camel_case_types, non_snake_case, clippy::upper_case_acronyms)]
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, EnumIter, Serialize, Deserialize, AsRefStr)]
+#[derive(
+    Debug, PartialEq, Eq, Clone, Copy, Hash, EnumIter, Serialize, Deserialize, IntoStaticStr,
+)]
 pub enum InsnOperandClass {
     ADDRESS,
     COND,
