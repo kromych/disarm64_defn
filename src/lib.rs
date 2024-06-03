@@ -859,6 +859,7 @@ pub enum InsnOperandQualifier {
     W,
     WSP,
     X,
+    SP,
 }
 
 /// The AArch64 instruction bit fields.
