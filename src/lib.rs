@@ -17,11 +17,10 @@ extern crate std;
 use bitflags::bitflags;
 use serde::Deserialize;
 use serde::Serialize;
-use strum_macros::EnumIter;
+use strum::{EnumIter, IntoStaticStr};
 
 #[cfg(feature = "std")]
 use strum::IntoEnumIterator;
-use strum_macros::IntoStaticStr;
 
 /// The AArch64 instruction classes.
 #[allow(non_camel_case_types)]
