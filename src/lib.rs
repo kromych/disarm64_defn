@@ -264,9 +264,10 @@ bitflags! {
 }
 
 impl InsnFlags {
+    /// Construct from a raw bit pattern, keeping any bits that do not correspond
+    /// to a defined flag.
     pub const fn const_from_bits(b: u64) -> InsnFlags {
-        // TODO: waiting for Option<T>::unwrap_or_else to be const
-        unsafe { core::mem::transmute(b) }
+        Self::from_bits_retain(b)
     }
 }
 
