@@ -9,7 +9,7 @@ By default, the crate is built with `std` support. If you intend not to depend o
 here is the syntax to use instead:
 
 ```toml
-disarm64_defn = { version = "0.1", default_features = false }
+disarm64_defn = { version = "0.2", default_features = false }
 ```
 
 For more information on the subject, please refer to:
